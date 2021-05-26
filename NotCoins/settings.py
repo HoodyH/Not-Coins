@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-BASIC_APPS = [
+BASIC_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +39,12 @@ BASIC_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-]
+)
 
-INSTALLED_APPS = BASIC_APPS + [
-
-]
+INSTALLED_APPS = BASIC_APPS + (
+    'NCBlockchains',
+    'NCTransactions',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,9 +86,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'PORT': os.getenv("DW_DBPORT", '5432'),
         'HOST': os.getenv("DW_DBHOST", 'localhost'),
-        'NAME': os.getenv("DW_DBNAME", 'dwadmin'),
-        'USER': os.getenv("DW_DBUSER", 'dataweb'),
-        'PASSWORD': os.getenv("DW_DBPASS", 'dataweb'),
+        'NAME': os.getenv("DW_DBNAME", 'notcoins'),
+        'USER': os.getenv("DW_DBUSER", 'notcoins'),
+        'PASSWORD': os.getenv("DW_DBPASS", 'notcoins'),
     },
 }
 
